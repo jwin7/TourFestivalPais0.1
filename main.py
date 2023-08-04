@@ -10,7 +10,7 @@ class TourMusicalApp(tk.Tk):
         self.title("Tour Festival Pais")
         self.geometry("800x600")
 
-        # Aquí puedes definir la paleta de colores y otros estilos de la interfaz gráfica
+        # Aquí se puede definir la paleta de colores y otros estilos de la interfaz gráfica
 
         # Agregar una barra de menú si es necesario
 
@@ -21,7 +21,7 @@ class TourMusicalApp(tk.Tk):
         boton_explorar = tk.Button(self, text="Explorar Eventos", command=self.mostrar_explorar)
         boton_explorar.pack()
 
-        # Puedes agregar más botones para otras secciones
+        # agregar más botones para otras secciones
 
         # Mostrar la vista de inicio al iniciar la aplicación
         self.mostrar_inicio()
@@ -34,7 +34,7 @@ class TourMusicalApp(tk.Tk):
         # Mostrar la vista de explorar eventos
         controlador_explorar.mostrar_explorar()
 
-    # Puedes definir más métodos para mostrar otras vistas de la aplicación
+    # definir más métodos para mostrar otras vistas de la aplicación
 
 if __name__ == "__main__":
     app = TourMusicalApp()
