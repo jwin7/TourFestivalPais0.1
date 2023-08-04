@@ -9,7 +9,7 @@ def mostrar_detalles_evento(evento_id):
     vista_detalles.mostrar_detalles(evento, reseñas)
 
 def escribir_reseña(evento_id, usuario_id, calificacion, comentario, animo):
-    # Aquí puedes agregar validaciones y lógica para evitar duplicados, etc.
+    # agregar validaciones y lógica para evitar duplicados, etc.
     modelo_review.agregar_reseña(evento_id, usuario_id, calificacion, comentario, animo)
     mostrar_detalles_evento(evento_id)
 

@@ -1,4 +1,23 @@
 import tkinter as tk
+import views.vista_eventos as vista_eventos
+
+class VistaExplorar(tk.Toplevel):
+    def __init__(self):
+        super().__init__()
+        self.title("Explorar Eventos")
+
+        # Agregar elementos y lógica para la vista de explorar
+        # Por ejemplo, puedes mostrar una lista de eventos y permitir al usuario filtrarlos o buscarlos
+        vista_eventos.mostrar_lista_eventos()
+        # Ejemplo para agregar un botón "Cerrar" y asociar el comando para cerrar la ventana
+        boton_cerrar = tk.Button(self, text="Cerrar", command=self.destroy)
+        boton_cerrar.pack()
+
+    def ocultar(self):
+        # Esta función oculta la ventana de la vista de explorar
+        # Puedes usarla cuando el usuario navega a otra sección de la aplicación
+        self.withdraw()
+
 
 def mostrar_resultados(eventos):
     # Crea una ventana para mostrar los resultados de búsqueda y filtrado

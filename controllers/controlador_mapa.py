@@ -21,10 +21,8 @@ def mostrar_mapa_eventos():
     vista_mapa.mostrar_mapa(mapa)
 
 def planificar_rutas():
-    # Aquí puedes implementar la lógica para la planificación de rutas entre eventos
-    # Puedes utilizar algoritmos de rutas como el Problema del Viajante (TSP) o Dijkstra
-    # y luego mostrar la ruta en el mapa con líneas o rutas optimizadas.
-
+    # Aquí se puede implementar la lógica para la planificación de rutas entre eventos
+    
     # Ejemplo básico: Mostrar una ruta simple entre dos eventos (puntos en el mapa)
     evento1 = {"nombre": "Evento1", "latitud": 40.7128, "longitud": -74.0060}
     evento2 = {"nombre": "Evento2", "latitud": 34.0522, "longitud": -118.2437}

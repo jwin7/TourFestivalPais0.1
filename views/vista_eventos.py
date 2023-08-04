@@ -1,4 +1,5 @@
 import tkinter as tk
+from controllers.controlador_eventos import controlador_eventos
 
 def mostrar_lista_eventos(eventos):
     # Crea la ventana y los elementos de la vista para mostrar la lista de eventos
@@ -24,5 +25,5 @@ def mostrar_lista_eventos(eventos):
 def ver_detalles_evento(evento):
     # Esta función se ejecuta cuando se hace clic en el botón "Ver Detalles"
     # Crea una ventana nueva para mostrar los detalles del evento
-    # Puedes usar el controlador correspondiente para mostrar los detalles del evento en esta nueva ventana
+    # Se puede usar el controlador correspondiente para mostrar los detalles del evento en esta nueva ventana
     controlador_eventos.mostrar_detalles_evento(evento["id"])

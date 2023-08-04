@@ -13,7 +13,7 @@ class VistaInicio(tk.Tk):
 
     def ocultar(self):
         # Esta función oculta la ventana de la página de inicio
-        # Puedes usarla cuando el usuario inicia sesión correctamente y navega a otra sección de la aplicación
+        # se puede usar cuando el usuario inicia sesión correctamente y navega a otra sección de la aplicación
         self.withdraw()
 
 # Ejemplo para mostrar la ventana de inicio

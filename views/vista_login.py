@@ -14,6 +14,6 @@ def mostrar_vista_login():
 
 def mostrar_mensaje_error(mensaje):
     # Esta función muestra un mensaje de error en la vista de inicio de sesión
-    # Puedes usarla para mostrar mensajes de error cuando las credenciales ingresadas son incorrectas
+    # se puede usar para mostrar mensajes de error cuando las credenciales ingresadas son incorrectas
     tk.messagebox.showerror("Error", mensaje)
 

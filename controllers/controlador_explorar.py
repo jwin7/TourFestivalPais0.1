@@ -25,3 +25,12 @@ def filtrar_eventos_por_horario(hora_inicio, hora_fin):
     eventos = modelo_eventos.cargar_eventos()
     eventos_filtrados = [evento for evento in eventos if hora_inicio <= evento.hora_inicio <= hora_fin]
     vista_explorar.mostrar_resultados(eventos_filtrados)
+
+def mostrar_explorar():
+    ventana_explorar = vista_explorar.VistaExplorar()
+    ventana_explorar.mainloop()
+
+def ocultar_explorar():
+    
+    ventana_explorar.ocultar()    
+      

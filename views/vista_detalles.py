@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from controllers import controlador_detalles  # Asegúrate de que el nombre sea correcto y esté en el lugar adecuado
+from controllers.controlador_detalles import controlador_detalles
 
 
 def mostrar_detalles(evento, reseñas):
@@ -70,7 +70,7 @@ def mostrar_detalles(evento, reseñas):
     boton_enviar_resena = tk.Button(ventana_detalles, text="Enviar Reseña", command=lambda: enviar_resena(evento.id, entrada_calificacion.get(), entrada_comentario.get(), opcion_animo.get()))
     boton_enviar_resena.pack()
 
-def enviar_resena(evento_id, calificacion, comentario, animo):
+def enviar_resena(evento_id, calificacion, comentario, animo, usuario_id):
     # Puedes agregar validaciones para asegurarte de que los datos sean correctos antes de enviar la reseña
     # Aquí también necesitarás el ID del usuario que está enviando la reseña, lo puedes obtener del sistema de autenticación
 

@@ -12,14 +12,14 @@ def mostrar_eventos():
     vista_eventos.mostrar_lista_eventos(eventos)
 
 def mostrar_detalles_evento(evento_id):
-    # Aquí puedes obtener los detalles del evento con el ID especificado desde el archivo JSON o desde la base de datos
-    # Por simplicidad, aquí creamos un evento de ejemplo
+    # Aquí se puede obtener los detalles del evento con el ID especificado desde el archivo JSON o desde la base de datos
+    # aquí creamos un evento de ejemplo
     evento = {
         "id": evento_id,
         "nombre": "Evento de ejemplo",
         "artista": "Artista de ejemplo",
         "genero": "Rock",
         "descripcion": "Descripción del evento de ejemplo",
-        # Agrega más detalles del evento aquí
+        # Agregar más detalles del evento aquí
     }
     vista_eventos.mostrar_detalles_evento(evento)
