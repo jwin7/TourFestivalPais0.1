@@ -1,5 +1,6 @@
 import models.eventos as modelo_eventos
 import views.vista_explorar as vista_explorar
+from views.vista_resultados import VistaResultados
 
 def buscar_eventos_por_nombre(nombre):
     eventos = modelo_eventos.cargar_eventos()
@@ -31,6 +32,5 @@ def mostrar_explorar():
     ventana_explorar.mainloop()
 
 def ocultar_explorar():
-    
     ventana_explorar.ocultar()    
       

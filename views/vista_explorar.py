@@ -1,5 +1,5 @@
 import tkinter as tk
-import views.vista_eventos as vista_eventos
+from controllers import controlador_explorar
 
 class VistaExplorar(tk.Toplevel):
     def __init__(self):
@@ -8,7 +8,7 @@ class VistaExplorar(tk.Toplevel):
 
         # Agregar elementos y lógica para la vista de explorar
         # Por ejemplo, puedes mostrar una lista de eventos y permitir al usuario filtrarlos o buscarlos
-        vista_eventos.mostrar_lista_eventos()
+        
         # Ejemplo para agregar un botón "Cerrar" y asociar el comando para cerrar la ventana
         boton_cerrar = tk.Button(self, text="Cerrar", command=self.destroy)
         boton_cerrar.pack()
@@ -19,10 +19,9 @@ class VistaExplorar(tk.Toplevel):
         self.withdraw()
 
 
-def mostrar_resultados(eventos):
-    # Crea una ventana para mostrar los resultados de búsqueda y filtrado
-    ventana_resultados = tk.Toplevel()
-    ventana_resultados.title('Resultados de Búsqueda y Filtrado')
+    def mostrar_resultados(eventos):
+        ventana_resultados = VistaResultados(eventos)
+        ventana_resultados.mainloop()
 
     # Crea una lista o tabla para mostrar los detalles de cada evento
     lista_eventos = tk.Listbox(ventana_resultados, width=50, height=10)
@@ -37,6 +36,7 @@ def mostrar_resultados(eventos):
         lista_eventos.insert(tk.END, f"{nombre} - {artista} - {genero} - Ubicación: {ubicacion}")
 
     lista_eventos.pack()
+   
 
     # Ejecutar el bucle principal de la ventana
     ventana_resultados.mainloop()
