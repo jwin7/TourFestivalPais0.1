@@ -1,17 +1,29 @@
+from tkinter import Tk, Label, Listbox
 import json
+from models.eventos import Evento
 
-import tkinter as tk
+class VentanaEventosAsistidos:
+    def __init__(self, root, usuario):
+        self.root = root
+        self.usuario = usuario
 
-class VistaEventos:
-    def __init__(self, usuario):
-        self.root = tk.Tk()
-        self.root.title("Eventos de {}".format(usuario))
-        self.eventos_listbox = tk.Listbox(self.root)
+        self.lista_eventos = Listbox(root)
+        self.lista_eventos.pack()
 
-    def mostrar_ventana_eventos(self, eventos_asistidos):
+        self.mostrar_eventos_asistidos()
+
+    def mostrar_eventos_asistidos(self):
+        eventos_asistidos = self.obtener_eventos_asistidos()
+
         for evento in eventos_asistidos:
-            self.eventos_listbox.insert(tk.END, evento)
+            self.lista_eventos.insert("end", evento.nombre)
 
-        self.eventos_listbox.pack()
-
-        self.root.mainloop()
+    def obtener_eventos_asistidos(self):
+        eventos_asistidos = []
+        with open("data/eventos.json", "r") as f:
+            eventos_json = json.load(f)
+            for evento_data in eventos_json["eventos"]:
+                if evento_data["id"] in self.usuario.historial_eventos:
+                    evento = Evento.from_json(json.dumps(evento_data))
+                    eventos_asistidos.append(evento)
+        return eventos_asistidos
