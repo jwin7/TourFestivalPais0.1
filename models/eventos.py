@@ -1,12 +1,12 @@
 import json
 class Evento:
-    def __init__(self, id: int, nombre: str, artista: str, genero:str, ubicacion: int, 
+    def __init__(self, id: int, nombre: str, artista: str, genero:str, id_ubicacion: int, 
                  hora_inicio: str, hora_fin: str, descripcion: str, imagen: str ):
         self.id = id
         self.nombre = nombre
         self.artista = artista
         self.genero = genero
-        self.ubicacion = ubicacion
+        self.id_ubicacion = id_ubicacion
         self.hora_inicio = hora_inicio
         self.hora_fin = hora_fin
         self.descripcion = descripcion
@@ -17,7 +17,7 @@ class Evento:
                 "nombre": self.nombre, 
                 "artista": self.artista, 
                 "genero": self.genero, 
-                "ubicacion": self.ubicacion, 
+                "id_ubicacion": self.id_ubicacion, 
                 "hora_inicio": self.hora_inicio, 
                 "hora_fin": self.hora_fin, 
                 "descripcion": self.descripcion, 
@@ -31,13 +31,13 @@ class Evento:
         nombre = data["nombre"]
         artista = data["artista"]
         genero = data["genero"]
-        ubicacion = data["ubicacion"]
+        id_ubicacion = data["id_ubicacion"]
         hora_inicio = data["hora_inicio"]
         hora_fin = data["hora_fin"]
         descripcion = data["descripcion"]
         imagen = data["imagen"]
         
-        return cls(id, nombre, artista, genero, ubicacion, hora_inicio, hora_fin, descripcion, imagen)
+        return cls(id, nombre, artista, genero, id_ubicacion, hora_inicio, hora_fin, descripcion, imagen)
     
 class IndiceEventos:
     def __init__(self):
@@ -79,7 +79,7 @@ class IndiceEventos:
     def filtrar_eventos_por_ubicacion(self, id_ubicacion):
         resultados = []
         for evento in self.eventos:
-            if evento.ubicacion == id_ubicacion:
+            if evento.id_ubicacion == id_ubicacion:
                 resultados.append(evento)
         return resultados
 
