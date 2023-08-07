@@ -11,3 +11,9 @@ class ControladorUsuarios:
                 return True
         return False
 
+    def obtener_eventos_asistidos(self, usuario):
+        for usuario_data in self.usuarios:
+            if usuario_data["usuario"] == usuario:
+                return usuario_data.get("eventos_asistidos", [])
+        return []
+
