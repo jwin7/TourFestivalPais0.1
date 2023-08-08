@@ -16,9 +16,9 @@
       },
       {
           "id": 3,
-          "nombre": "Carlos",
+          "nombre": "Alberto",
           "apellido": "Enrique",
-          "contrasena": "carlos",
+          "contrasena": "Alberto",
           "historial_eventos": [1]
       }
   ]
