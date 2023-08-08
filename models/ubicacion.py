@@ -13,7 +13,7 @@ class Ubicacion:
     
 
     @classmethod
-    def cargar_de_json(cls, json_data):
+    def from_json(cls, json_data):
         data = json.loads(json_data)
         
         id = data["id"]

@@ -1,47 +1,42 @@
-from tkinter import Tk, Label, Entry, Button, messagebox
-import json
-from models.usuario import Usuario
-from views.vista_eventos import VentanaEventosAsistidos
-class VentanaInicio:
-    def __init__(self, root):
-        self.root = root
-        self.usuarios = self.cargar_usuarios()
+import tkinter as tk
+from controllers.controlador_inicio import ControladorInicio
 
-        self.label_usuario = Label(root, text="Usuario:")
-        self.entry_usuario = Entry(root)
-        self.label_contrasena = Label(root, text="Contraseña:")
-        self.entry_contrasena = Entry(root, show="*")
-        self.boton_iniciar_sesion = Button(root, text="Iniciar Sesión", command=self.iniciar_sesion)
-
-        self.label_usuario.pack()
-        self.entry_usuario.pack()
-        self.label_contrasena.pack()
-        self.entry_contrasena.pack()
-        self.boton_iniciar_sesion.pack()
-
-    def cargar_usuarios(self):
-        with open("data/usuario.json", "r") as f:
-            usuarios_json = json.load(f)
-            usuarios = [Usuario.from_json(json.dumps(usuario_data)) for usuario_data in usuarios_json["usuarios"]]
-        return usuarios
-
+class VistaInicio:
+    def __init__(self, master):
+        self.master = master
+        self.controlador = ControladorInicio()
+        
+        self.master.title("TourFestivalPais1.0 - Inicio")
+        
+        self.label_nombre = tk.Label(self.master, text="Nombre:")
+        self.label_nombre.grid(row=0, column=0)
+        
+        self.entry_nombre = tk.Entry(self.master)
+        self.entry_nombre.grid(row=0, column=1)
+        
+        self.label_contrasena = tk.Label(self.master, text="Contraseña:")
+        self.label_contrasena.grid(row=1, column=0)
+        
+        self.entry_contrasena = tk.Entry(self.master, show="*")
+        self.entry_contrasena.grid(row=1, column=1)
+        
+        self.button_iniciar_sesion = tk.Button(self.master, text="Iniciar sesión", command=self.iniciar_sesion)
+        self.button_iniciar_sesion.grid(row=2, column=0, columnspan=2)
+        
+        self.label_mensaje = tk.Label(self.master, text="")
+        self.label_mensaje.grid(row=3, column=0, columnspan=2)
+    
     def iniciar_sesion(self):
-        usuario = self.entry_usuario.get()
+        nombre = self.entry_nombre.get()
         contrasena = self.entry_contrasena.get()
-
-        # Validar las credenciales con los datos almacenados
-        for u in self.usuarios:
-            if u.nombre == usuario and u.contrasena == contrasena:
-                self.abrir_ventana_eventos_asistidos(u)
-                return
-
-        messagebox.showerror("Error", "Usuario o contraseña incorrectos")
-
-    def abrir_ventana_eventos_asistidos(self, usuario):
-        self.root.destroy()  # Cerrar la ventana de inicio de sesión
-        root_eventos_asistidos = Tk()
-        root_eventos_asistidos.title("Eventos Asistidos")
-        root_eventos_asistidos.geometry("400x300")
-
-        ventana_eventos_asistidos = VentanaEventosAsistidos(root_eventos_asistidos, usuario)
-        #root_eventos_asistidos.mainloop()
+        
+        usuario = self.controlador.iniciar_sesion(nombre, contrasena)
+        
+        if usuario:
+            # Inicio de sesión exitoso
+            # Mostrar la vista de índice de eventos
+            pass
+        else:
+            # Inicio de sesión fallido
+            # Mostrar mensaje de error
+            self.label_mensaje.config(text="Nombre o contraseña incorrectos")

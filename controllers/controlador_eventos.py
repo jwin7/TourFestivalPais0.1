@@ -1,30 +1,28 @@
 import json
 from models.eventos import Evento
 
+class ControladorEventos:
+    def __init__(self):
+        with open('data/eventos.json', 'r') as file:
+            self.eventos = [Evento.from_json(evento) for evento in json.load(file)]
 
-class ControladorEventosAsistidos:
-    def __init__(self, usuario, modelo_eventos):
-        self.usuario = usuario
-        self.modelo_eventos = modelo_eventos
-
-    def obtener_eventos_asistidos(self):
-        eventos_asistidos = []
-        for evento_id in self.usuario.historial_eventos:
-            evento = self.modelo_eventos.obtener_evento_por_id(evento_id)
-            if evento:
-                eventos_asistidos.append(evento)
-        return eventos_asistidos
-
-    def obtener_todos_los_eventos(self):
-        eventos = []
-
-        try:
-            with open("data/eventos.json", "r") as f:
-                eventos_json = json.load(f)
-                for evento_data in eventos_json["eventos"]:
-                    evento = Evento.from_json(json.dumps(evento_data))
-                    eventos.append(evento)
-        except FileNotFoundError:
-            pass
-
+    def obtener_eventos(self, busqueda=None, filtros=None):
+        eventos = self.eventos
+        if busqueda:
+            eventos = [evento for evento in eventos if busqueda.lower() in evento.nombre.lower()]
+        if filtros:
+            if 'genero' in filtros:
+                eventos = [evento for evento in eventos if evento.genero == filtros['genero']]
+            if 'artista' in filtros:
+                eventos = [evento for evento in eventos if evento.artista == filtros['artista']]
+            if 'ubicacion' in filtros:
+                eventos = [evento for evento in eventos if evento.id_ubicacion == filtros['ubicacion']]
+            if 'horario' in filtros:
+                eventos = [evento for evento in eventos if evento.hora_inicio >= filtros['horario'][0] and evento.hora_fin <= filtros['horario'][1]]
         return eventos
+
+    def obtener_evento(self, id_evento):
+        for evento in self.eventos:
+            if evento.id == id_evento:
+                return evento
+        return None
