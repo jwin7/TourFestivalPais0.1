@@ -16,23 +16,15 @@ class Usuario:
             "contrasena": self.contrasena,
             "historial_eventos": self.historial_eventos
         }
-
+    
     @classmethod
-    def from_json(cls, json_data):
-        data = json.loads(json_data)
+    def from_json(cls, data):
         return cls(
             data["id"],
             data["nombre"],
             data["apellido"],
             data["contrasena"],
             data["historial_eventos"]
-            )
+        )
 
-    def agregar_evento_al_historial(self, id_evento):
-        if id_evento not in self.historial_eventos:
-            self.historial_eventos.append(id_evento)
-
-    def obtener_historial_eventos(self, indice_eventos):
-        return [indice_eventos.obtener_evento_por_id(id_evento) for id_evento in self.historial_eventos]
-    
     
