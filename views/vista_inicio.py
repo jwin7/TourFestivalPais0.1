@@ -6,7 +6,7 @@ class VistaInicio:
         self.master = master
         self.controlador = ControladorInicio()
         
-        self.master.title("TourFestivalPais1.0 - Inicio")
+        self.master.title("TourFestivalPais - Inicio")
         
         self.label_nombre = tk.Label(self.master, text="Nombre:")
         self.label_nombre.grid(row=0, column=0)

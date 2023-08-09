@@ -3,21 +3,18 @@
         "id": 1,
         "nombre": "Jorge",
         "apellido": "Gutierrez",
-        "contrasena": "jorge",
         "historial_eventos": [1, 2]
     },
     {
         "id": 2,
         "nombre": "Gabriel",
         "apellido": "Vega",
-        "contrasena": "gabriel",
         "historial_eventos": [1]
     },
     {
         "id": 3,
         "nombre": "Alberto",
         "apellido": "Enrique",
-        "contrasena": "Alberto",
         "historial_eventos": [1]
     }
 ]
