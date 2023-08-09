@@ -1,7 +1,7 @@
 import json
 from models.usuario import Usuario
 
-class ControladorUsuarios:
+class ControladorUsuario:
     def __init__(self):
         with open('data/usuario.json', 'r') as file:
             self.usuarios = [Usuario.from_json(usuario) for usuario in json.load(file)]
@@ -18,3 +18,4 @@ class ControladorUsuarios:
             if usuario.id == id_usuario:
                 return usuario
         return None
+    

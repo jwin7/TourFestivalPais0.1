@@ -18,3 +18,4 @@ class ControladorUbicaciones:
                 ubicaciones.append(ubicacion)
 
         return ubicaciones
+    

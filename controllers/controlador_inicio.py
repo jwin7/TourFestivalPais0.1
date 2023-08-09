@@ -11,3 +11,4 @@ class ControladorInicio:
             if usuario.nombre == nombre and usuario.contrasena == contrasena:
                 return usuario
         return None
+    
