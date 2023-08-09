@@ -1,5 +1,4 @@
 import tkinter as tk
-import tkinter as tk
 from controllers.controlador_evento import ControladorEventos
 from controllers.controlador_usuario import ControladorUsuario
 from controllers.controlador_inicio import ControladorInicio
@@ -41,5 +40,6 @@ class App:
 
 if __name__ == "__main__":
     root = tk.Tk()
+    root.title("Tour Festival Pais 0.1")
     app = App(root)
     root.mainloop()

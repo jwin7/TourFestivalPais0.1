@@ -4,7 +4,7 @@ from models.evento import Evento
 class ControladorEventos:
     def __init__(self):
         with open('data/evento.json', 'r') as file:
-            self.eventos = [Evento.from_json(evento) for evento in json.load(file)]
+            self.eventos = json.load(file)
 
     def obtener_eventos(self, busqueda=None, filtros=None):
         eventos = self.eventos

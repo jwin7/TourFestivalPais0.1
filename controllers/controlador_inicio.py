@@ -4,7 +4,7 @@ from models.usuario import Usuario
 class ControladorInicio:
     def __init__(self):
         with open('data/usuario.json', 'r') as file:
-            self.usuarios = [Usuario.from_json(usuario) for usuario in json.load(file)]
+            self.usuarios = json.load(file)
 
     def iniciar_sesion(self, nombre, contrasena):
         for usuario in self.usuarios:

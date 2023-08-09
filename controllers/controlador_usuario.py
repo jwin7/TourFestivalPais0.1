@@ -4,7 +4,7 @@ from models.usuario import Usuario
 class ControladorUsuario:
     def __init__(self):
         with open('data/usuario.json', 'r') as file:
-            self.usuarios = [Usuario.from_json(usuario) for usuario in json.load(file)]
+            self.usuarios = json.load(file)
 
     def obtener_usuarios(self, busqueda=None):
         usuarios = self.usuarios
