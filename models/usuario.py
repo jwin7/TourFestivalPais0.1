@@ -16,15 +16,16 @@ class Usuario:
             "contrasena": self.contrasena,
             "historial_eventos": self.historial_eventos
         }
-    
-    @classmethod
-    def from_json(cls, data):
-        return cls(
-            data["id"],
-            data["nombre"],
-            data["apellido"],
-            data["contrasena"],
-            data["historial_eventos"]
-        )
 
+    @classmethod
+    def from_json(cls, json_data):
+        data = json.loads(json_data)
+
+        id = data["id"]
+        nombre = data["nombre"]
+        apellido = data["apellido"]
+        contrasena = data["contrasena"]
+        historial_eventos = data["historial_eventos"]
+
+        return cls(id, nombre, apellido, contrasena, historial_eventos)
     
