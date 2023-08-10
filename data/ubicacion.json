@@ -18,5 +18,10 @@
         "id" : 4,
         "direccion": "Bodega encantada, Chacabuco 35",
         "coordenadas": [-26.075547, -65.976835]
+    },  
+    {
+        "id" : 5,
+        "direccion": "Predio Ciudad Cultural de San Salvador de Jujuy",
+        "coordenadas": [-24.183268, -65.331252]
     }
 ]
