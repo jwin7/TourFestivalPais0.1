@@ -30,6 +30,14 @@
     "calificacion": 5,
     "comentario": "¡Excelente evento! No me acuerdo nada porque me tome todo el fernet",
     "animo": "positivo"
+  },
+  {
+    "id": 5,
+    "id_evento": 5,
+    "id_usuario": 3,
+    "calificacion": 5,
+    "comentario": "¡Excelente evento! Fue lindo compartir el festival junto a mi familia",
+    "animo": "positivo"
   }
 ]
 
