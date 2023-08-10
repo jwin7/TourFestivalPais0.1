@@ -1,29 +1,19 @@
-import json
+
 from models.evento import Evento
+from models.usuario import Usuario
 
-class ControladorEventos:
-    def __init__(self):
-        with open('data/evento.json', 'r') as file:
-            self.eventos = json.load(file)
+class ControladorEvento:
+    def obtener_eventos(self):
+        return Evento.obtener_todos()
 
-    def obtener_eventos(self, busqueda=None, filtros=None):
-        eventos = self.eventos
-        if busqueda:
-            eventos = [evento for evento in eventos if busqueda.lower() in evento.nombre.lower()]
-        if filtros:
-            if 'genero' in filtros:
-                eventos = [evento for evento in eventos if evento.genero == filtros['genero']]
-            if 'artista' in filtros:
-                eventos = [evento for evento in eventos if evento.artista == filtros['artista']]
-            if 'ubicacion' in filtros:
-                eventos = [evento for evento in eventos if evento.id_ubicacion == filtros['ubicacion']]
-            if 'horario' in filtros:
-                eventos = [evento for evento in eventos if evento.hora_inicio >= filtros['horario'][0] and evento.hora_fin <= filtros['horario'][1]]
-        return eventos
+    def obtener_eventos_asistidos_por_usuario(self, id_usuario):
+        usuario = Usuario.obtener_por_id(id_usuario)
+        eventos = Evento.obtener_todos()
+        eventos_asistidos = [evento for evento in eventos if evento['id'] in usuario['historial_eventos']]
+        return eventos_asistidos
 
-    def obtener_evento(self, id_evento):
-        for evento in self.eventos:
-            if evento.id == id_evento:
+    def obtener_evento_por_id(self, id_evento):
+        eventos = Evento.obtener_todos()
+        for evento in eventos:
+            if evento['id'] == id_evento:
                 return evento
-        return None
-    

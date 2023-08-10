@@ -1,28 +1,16 @@
 import json
 
 class Usuario:
-    def __init__(self, id, nombre, apellido, historial_eventos):
-        self.id = id
-        self.nombre = nombre
-        self.apellido = apellido
-        self.historial_eventos = historial_eventos
+    @staticmethod
+    def obtener_todos():
+        with open('data/usuario.json', 'r') as f:
+            data = json.load(f)
+            return data
 
-    def to_json(self):
-        return {
-            "id": self.id,
-            "nombre": self.nombre,
-            "apellido": self.apellido,
-            "historial_eventos": self.historial_eventos
-        }
-
-    @classmethod
-    def from_json(cls, json_data):
-        data = json.loads(json_data)
-
-        id = data["id"]
-        nombre = data["nombre"]
-        apellido = data["apellido"]
-        historial_eventos = data["historial_eventos"]
-
-        return cls(id, nombre, apellido, historial_eventos)
-    
+    @staticmethod
+    def obtener_por_id(id_usuario):
+        with open('data/usuario.json', 'r') as f:
+            data = json.load(f)
+            for usuario in data:
+                if usuario['id'] == id_usuario:
+                    return usuario

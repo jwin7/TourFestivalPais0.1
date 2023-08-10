@@ -1,30 +1,24 @@
-import json
+
+import folium
+from models.evento import Evento
 from models.ubicacion import Ubicacion
-from models.rutaVisita import RutaVisita
 
-class ControladorUbicaciones:
-    def cargar_ubicaciones(self):
-        ubicaciones = []
+class ControladorMapa:
+    def crear_mapa(self):
+        # Crear un mapa centrado en Argentina
+        mapa = folium.Map(location=[-38.416097, -63.616672], zoom_start=4)
 
-        with open('data/ubicacion.json', 'r') as ubicacion_file:
-            ubicaciones_data = json.load(ubicacion_file)
-            for ubicacion_data in ubicaciones_data['ubicacion']:
-                ubicacion = Ubicacion(
-                    ubicacion_data['id'],
-                    ubicacion_data['direccion'],
-                    ubicacion_data['coordenadas'],
-                )
-                ubicaciones.append(ubicacion)
+        # Obtener la lista de eventos y ubicaciones
+        eventos = Evento.obtener_todos()
+        ubicaciones = Ubicacion.obtener_todos()
 
-        return ubicaciones
+        # Agregar marcadores al mapa para mostrar la ubicación de los eventos
+        for evento in eventos:
+            ubicacion = next(ubicacion for ubicacion in ubicaciones if ubicacion['id'] == evento['ubicacion'])
+            folium.Marker(
+                location=ubicacion['coordenadas'],
+                popup=f"{evento['nombre']} - {evento['artista']}"
+            ).add_to(mapa)
+
+        return mapa
     
-
-    def crear_ruta(self, nombre, ids_eventos, id_destino):
-        nueva_ruta = RutaVisita(len(self.rutas) + 1, nombre, ids_eventos, id_destino)
-        self.rutas.append(nueva_ruta)
-        self.guardar_rutas_en_archivo()
-
-    def guardar_rutas_en_archivo(self):
-        with open('data/rutaVisita.json', 'w') as file:
-            data = [ruta.to_json() for ruta in self.rutas]
-            json.dump(data, file)

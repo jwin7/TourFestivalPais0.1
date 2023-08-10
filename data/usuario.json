@@ -3,7 +3,7 @@
         "id": 1,
         "nombre": "Jorge",
         "apellido": "Gutierrez",
-        "historial_eventos": [1, 2]
+        "historial_eventos": [1, 4]
     },
     {
         "id": 2,
@@ -15,7 +15,7 @@
         "id": 3,
         "nombre": "Alberto",
         "apellido": "Enrique",
-        "historial_eventos": [1]
+        "historial_eventos": [3]
     }
 ]
 

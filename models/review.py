@@ -1,31 +1,21 @@
 import json
-class Review:
-    def __init__(self, id, id_evento, id_usuario, calificacion, comentario, animo):
-        self.id = id
-        self.id_evento = id_evento
-        self.id_usuario = id_usuario
-        self.calificacion = calificacion
-        self.comentario = comentario
-        self.animo = animo
 
-    def to_json(self):
-        return {
-            "id": self.id,
-            "id_evento": self.id_evento,
-            "id_usuario": self.id_usuario,
-            "calificacion": self.calificacion,
-            "comentario": self.comentario,
-            "animo": self.animo
-        }    
-    
-    @classmethod
-    def from_json(cls, json_data):
-        data = json.loads(json_data)
-        return cls(
-            data["id"],
-            data["id_evento"],
-            data["id_usuario"],
-            data["calificacion"],
-            data["comentario"],
-            data["animo"]
-            )
+class Review:
+    @staticmethod
+    def obtener_todos():
+        with open('data/review.json', 'r') as f:
+            data = json.load(f)
+            return data
+
+    @staticmethod
+    def crear(review):
+        # Cargar los datos actuales
+        with open('data/review.json', 'r') as f:
+            data = json.load(f)
+
+        # Agregar la nueva reseña
+        data.append(review)
+
+        # Guardar los datos actualizados
+        with open('data/review.json', 'w') as f:
+            json.dump(data, f)
