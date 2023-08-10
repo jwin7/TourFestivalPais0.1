@@ -42,5 +42,16 @@
     "hora_fin": "02:00",
     "descripcion": "Un festival de música folclórica que reúne a grandes artistas nacionales e internacionales en la ciudad de Cafayate, Salta.",
     "imagen": "Chaqueño_Palavecino.jpg"
+    },
+    {
+    "id": 5,
+    "nombre": "Carnaval de los Tekis",
+    "artista": "Los Tekis",
+    "genero": "Folclore",
+    "ubicacion": 5,
+    "hora_inicio": "23:00",
+    "hora_fin": "02:00",
+    "descripcion": "Un festival de música folclórica que reúne a grandes artistas nacionales e internacionales en San Salvador de Jujuy.",
+    "imagen": "Los_Tekis.jpg"
     }
 ]
