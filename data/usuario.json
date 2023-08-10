@@ -16,6 +16,12 @@
         "nombre": "Alberto",
         "apellido": "Enriquez",
         "historial_eventos": [3]
+    },
+    {
+        "id": 3,
+        "nombre": "Damian",
+        "apellido": "Canonica",
+        "historial_eventos": [3]
     }
 ]
 
