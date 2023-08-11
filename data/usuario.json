@@ -18,10 +18,16 @@
         "historial_eventos": [3]
     },
     {
-        "id": 3,
+        "id": 4,
         "nombre": "Damian",
-        "apellido": "Canonica",
+        "apellido": "Canónica",
         "historial_eventos": [3]
+    },
+    {
+        "id": 5,
+        "nombre": "Maria",
+        "apellido": "Costa",
+        "historial_eventos": [5]
     }
 ]
 
