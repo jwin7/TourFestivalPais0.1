@@ -23,5 +23,10 @@
         "id" : 5,
         "direccion": "Predio Ciudad Cultural de San Salvador de Jujuy",
         "coordenadas": [-24.183268, -65.331252]
+    },  
+    {
+        "id" : 6,
+        "direccion": "Autódromo Ciudad de La Rioja",
+        "coordenadas": [-29.407251, -66.883071]
     }
 ]
