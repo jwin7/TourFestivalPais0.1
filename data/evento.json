@@ -53,5 +53,16 @@
     "hora_fin": "02:00",
     "descripcion": "Un festival de música folclórica que reúne a grandes artistas nacionales e internacionales en San Salvador de Jujuy.",
     "imagen": "Los_Tekis.jpg"
+    },
+    {
+    "id": 6,
+    "nombre": "Fiesta de la Chaya",
+    "artista": "Sergio Galleguillo",
+    "genero": "Folclore",
+    "ubicacion": 6,
+    "hora_inicio": "23:00",
+    "hora_fin": "02:00",
+    "descripcion": "Un festival de música folclórica que reúne a grandes artistas nacionales en La Rioja.",
+    "imagen": "Sergio Galleguillo.jpg"
     }
 ]
