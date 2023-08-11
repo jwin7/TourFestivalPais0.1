@@ -38,6 +38,14 @@
     "calificacion": 5,
     "comentario": "¡Excelente evento! Fue lindo compartir el festival junto a mi familia",
     "animo": "positivo"
+  },
+  {
+    "id": 6,
+    "id_evento": 6,
+    "id_usuario": 3,
+    "calificacion": 4,
+    "comentario": "Muy buen evento, pero el sonido podría mejorar",
+    "animo": "positivo"
   }
 ]
 
